@@ -7,7 +7,7 @@ Homepage: http://ipxe.org/
 Build-Depends:
 
 Package: ipxe-efi
-Architecture: arm64 armv7l
+Architecture: arm64 armhf
 Depends:
 Description: iPXE network boot firmware
  iPXE is network boot firmware. It supports a variety of network protocols
