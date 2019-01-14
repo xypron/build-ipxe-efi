@@ -1,0 +1,14 @@
+Source: ipxe-efi
+Maintainer: Heinrich Schuchardt <xypron.glpk@gmx.de>
+Priority: optional
+Section: admin
+Standards-Version: 4.3.0.1
+Homepage: http://ipxe.org/
+Build-Depends:
+
+Package: ipxe-efi
+Architecture: arm64 armv7l
+Depends:
+Description: iPXE network boot firmware
+ iPXE is network boot firmware. It supports a variety of network protocols
+ including DHCP, HTTP(S), and iSCSI.

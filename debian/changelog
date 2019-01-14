@@ -1,0 +1,5 @@
+ipxe-efi (2018.08.25-001) unstable; urgency=medium
+
+  * Initial release
+
+ -- Heinrich Schuchardt <xypron.glpk@gmx.de>  Mon, 14 Jan 2019 00:00:23 +0100

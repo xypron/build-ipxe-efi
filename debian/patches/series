@@ -1,0 +1,2 @@
+0001-build-Don-t-use-mabi-lp64-for-HOSTCC.patch
+0001-efi-avoid-stringop-truncation-error-in-util-elf2efi..patch

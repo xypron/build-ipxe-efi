@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+NPROC=${shell nproc}
+
+MK_ARCH="${shell uname -m}"
+ifeq ("aarch64", $(MK_ARCH))
+	TARGET=bin-arm64-efi/snp.efi
+endif
+ifeq ("armv7l", $(MK_ARCH))
+	TARGET=bin-arm32-efi/snp.efi
+endif
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	cp debian/config/* src/config/local
+
+override_dh_auto_build:
+	cd src && make -j $(NPROC) $(TARGET) EMBED=config/local/chain.ipxe
+
+override_dh_install:
+	rm -rf debian/tmp/usr/lib/ipxe-efi/$(TARGET)
+	mkdir -p debian/tmp/usr/lib/ipxe-efi/$(TARGET)
+	rm -rf debian/tmp/usr/lib/ipxe-efi/$(TARGET)
+	cp src/$(TARGET) debian/tmp/usr/lib/ipxe-efi/$(TARGET)
+	dh_install
+
+override_dh_auto_clean:
+	$(MAKE) -C src veryclean
+	rm -rf src/bin*
+	rm -f src/config/local/*
